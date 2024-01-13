@@ -17,8 +17,9 @@ def valid_legal_n_id(num):
     if not re.search(r'^\d{11}$', num):
         return False
     check = int(num[-1])
-    dahgan = int(num[-2]) + 2
-    zarib = [29,27,23,19,17,29,27,23,19,17]
-    s = sum([(int(num[x]) + dahgan) * zarib[x] for x in range(10)]) % 11
+    decimal = int(num[-2]) + 2
+    coefficient = [29,27,23,19,17,29,27,23,19,17]
+    s = sum([(int(num[x]) + decimal) * coefficient[x] for x in range(10)]) % 11
     if s == 10: s = 0
     return s == check
+
